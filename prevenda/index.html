@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+
+<html  manifest="offlinedatabase.manifest" lang="pt-br">
+
+<head>
+
+<meta charset="utf-8">
+
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+<title>PreVenda</title>
+<script type="text/javascript" src="offlinedatabaseJS.js" ></script>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css">
+
+</head>
+
+<body onload="onInit()">
+
+<div class="container-fluid">
+  <form name="itemForm">    
+      <div class="col bg-info text-white">
+
+            <div class="row">
+                  <div class="container">
+                        <div class="col-12">
+                              <h4>PRÉ-VENDA</h4>
+                        </div>
+                  </div>
+            </div>
+
+            <div class="row ">
+                  <div class="col-12">
+                        <div class="row">
+                              <div class="container">
+                                    <form name="itemForm">
+                                          <div class="row ">
+                                                
+                                                <div class="col-6">
+                                                      <div class="accordion row " id="accordionExampleOne">
+                                                            <div class="card col-12">
+                                                                <div class="input-group">
+
+                                                                    <input type="search" name="findcliente" class="form-control" placeholder="Digite Id Venda, CPF/CNPJ ou Nome do Cliente" id="findcliente"  autofocus  style="margin-left : -0.85em"/>
+                                                                    <button class="btn  btn-link collapsed" type="button" data-mdb-ripple-color="dark"data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                                                                      <b class="text-info">Dados da Venda </b>
+                                                                    </button>
+                                                                </div>
+                                                                <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExampleOne">
+                                                                    <div class="card-body">
+                                                                        <div class="card-body">
+                                                                            <div class="row mt-0">
+                                                                                <div class="form-group col-md-2  mt-0">
+                                                                                    <input type="search" name="findvenda" class="form-control" placeholder="Venda" id="findvenda" />
+                                                                                </div>
+                                                                                <div class="form-group col-md-3 mt-0">
+                                                                                    <input id="clienterazaosocial" name="clienterazaosocial" type="text" class="form-control" placeholder="Cliente Razão">
+                                                                                </div>
+                                                                                <div class="form-group col-md-3 mt-0">
+                                                                                    <input id="clientenomefantasia" name="clientenomefantasia" type="text" class="form-control" placeholder="Cliente Fantasia">
+                                                                                </div>
+                                                                                <div class="form-group col-md-2 mt-0">
+                                                                                    <input id="clientecidade" name="clientecidade" type="text" class="form-control" placeholder="Cliente Cidade">
+                                                                                </div>     
+                                                                                <div class="form-group col-md-2 mt-0">
+                                                                                    <input id="clientecnpj" name="clientecnpj" type="text" class="form-control" placeholder="Cliente CNPJ">
+                                                                                </div>  
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                      </div>                                                   
+                                                </div>
+
+
+                                                <div class="col-6">
+                                                      <div class="accordion row " id="accordionExample">
+                                                            <div class="card col-12">
+                                                                <div class="input-group"><b class="text-info">  </b> 
+                                                                    <input type="search" name="findcliente" class="form-control" placeholder="Digite CPF/CNPJ, Nome ou Celular" id="findcliente"  autofocus />
+                                                                    <button class="btn  btn-link collapsed" type="button" data-mdb-ripple-color="dark"data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                                                      <b class="text-info">Dados do Cliente </b>
+                                                                    </button>
+                                                                </div>
+                                                                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+                                                                    <div class="card-body">
+                                                                        <div class="card-body">
+                                                                            <div class="row mt-0">
+                                                                                <div class="form-group col-md-2  mt-0">
+                                                                                    <input type="search" name="findcliente" class="form-control" placeholder="Cliente" id="findcliente" />
+                                                                                </div>
+                                                                                <div class="form-group col-md-3 mt-0">
+                                                                                    <input id="clienterazaosocial" name="clienterazaosocial" type="text" class="form-control" placeholder="Cliente Razão">
+                                                                                </div>
+                                                                                <div class="form-group col-md-3 mt-0">
+                                                                                    <input id="clientenomefantasia" name="clientenomefantasia" type="text" class="form-control" placeholder="Cliente Fantasia">
+                                                                                </div>
+                                                                                <div class="form-group col-md-2 mt-0">
+                                                                                    <input id="clientecidade" name="clientecidade" type="text" class="form-control" placeholder="Cliente Cidade">
+                                                                                </div>     
+                                                                                <div class="form-group col-md-2 mt-0">
+                                                                                    <input id="clientecnpj" name="clientecnpj" type="text" class="form-control" placeholder="Cliente CNPJ">
+                                                                                </div>  
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                      </div>                                                   
+                                                </div>
+                                          </div>
+                                    </form>
+                              </div>
+                        </div>
+                  </div>      
+            </div>
+            <div class="row mt-0">
+                  <div class="col-12">      
+                        <div class="row mt-0">
+                              <div class="container bg-info">
+                                    
+                                          <div class="row">
+                                                <div class="col-9">
+                        <div class="col-12">
+                              <div class="row mt-0">
+                                    <h6>ADICIONAR PRODUTOS</h6>
+                              </div>
+                        </div>                                                      
+                                                      <div class="row">
+                                                            <div class="form-group col-md-2">
+                                                                       <label for="id">Id:
+                                                                       <input type="text" name="id" class="form-control" placeholder="ID" id="id" size="3" disabled="true"/></label>  
+                                                            </div>
+                                                            <div class="form-group col-md-6">
+                                                                       <label for="nome">Nome:
+                                                                       <input type="text" class="form-control" placeholder="Nome" name="nome" id="nome" /></label>
+                                                            </div>
+                                                            <div class="form-group col-md-4">
+                                                                      <label for="idade">Idade
+                                                                      <input type="text" class="form-control" placeholder="Idade" name="idade" id="idade"/></label>  
+                                                            </div>
+                                                      </div>
+                                                </div>
+
+                                                <div class="col-3">   
+                                                      <div class="row">
+                                                            <div class="form-group col-md-4">
+                                                                  <input type="button" class="form-control btn btn-primary" name="create" value="create" onclick="onCreate()"  style="cursor:pointer;"/>
+                                                            </div>
+                                                                  
+                                                            <div class="form-group col-md-4">
+                                                                 <input type="button"class="form-control btn btn-warning" name="update" value="update" onclick="onUpdate()"  style="cursor:pointer;"/>       
+                                                            </div>                                                      
+                                                            <div class="form-group col-md-4">
+                                                                  <input type="button"class="form-control btn btn-danger" name="delete" value="delete" onclick="onDelete()"  style="cursor:pointer;"/>
+                                                            </div>
+                                                      </div> 
+                                                </div>     
+
+                                          </div>             
+                                    
+                              </div>
+                        </div>
+                  </div>
+                  <div class="container">
+                        <div class="col-12">
+                              <div class="row">
+                                    <h6>PRODUTOS</h6>
+                              </div>
+                        </div>
+                        <div class="col-12">
+                              <div class="row mt-0">
+                                    <ul  id="itemData" style="cursor:pointer;"></ul>
+                              </div>
+                        </div>                  
+
+                        <div class="col-12"> 
+                              <div class="row mt-0">
+                                    <h4>Status: <div id="status"></div></h4>                                
+                              </div>
+                        </div>
+                  </div>
+            </div>
+      </div>
+   </form>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"></script>
+
+</body>
+
+</html>
+
+
+

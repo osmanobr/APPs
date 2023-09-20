@@ -1,0 +1,20 @@
+INSTALACAO:
+Necessário um servidor localhost ou hospedagem com a versão do PHP: 7.3.28 ou superior
+
+1 Crie usando o phpMyAdmin ou outro criador de bancos de sua preferencia um banco de dados MySQL
+
+2 Importe o arquivo "banco.sql"
+
+3 Extraia os arquivos dentro da pasta root
+
+4 Abra com um editor de textos qualquer os arquivos:
+  conexao.php
+  escritorio/conexao.php
+  escritorio/conexao.class.php
+  edite com informações do seu banco de dados de acesso
+
+5 O painel administrativo pode ser acessado pelo endereço: http://seuenderecodehospedagem/escritorio
+
+caso precise de informações ou novos modulos entre em contato
+email: osmanobr@hotmail.com
+celular: 63 9 9289 3682

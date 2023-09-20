@@ -1,0 +1,59 @@
+﻿﻿<?xml version="1.0" encoding="utf-8"?>
+<AppBuilder>
+  <App>
+    <ID>com.decsoft.getjson</ID>
+    <Name>GetJson</Name>
+    <ShortName>GetJson</ShortName>
+    <Version>1.0.0</Version>
+    <Width>320</Width>
+    <Height>480</Height>
+    <Description>Another DecSoft App Builder app</Description>
+    <AuthorName>DecSoft App Builder</AuthorName>
+    <AuthorUrl>https://www.decsoftutils.com/</AuthorUrl>
+    <AuthorEmail>info@decsoftutils.com</AuthorEmail>
+    <Created>2020-01-01T00:00:00.000</Created>
+    <Sidebar>
+      <Languages />
+    </Sidebar>
+    <Events />
+    <Translations />
+    <Metadata />
+    <Webapp />
+    <ProWebApp />
+    <WebExtension />
+    <Functions />
+    <Resources />
+    <Cordova>
+      <General />
+      <Plugins />
+      <Electron />
+      <Android />
+      <IOS />
+      <Windows />
+      <Platforms />
+      <Splash />
+      <Config />
+      <Paths />
+    </Cordova>
+    <Views>
+      <View Name="view1" />
+    </Views>
+    <Dialogs />
+    <Frames />
+    <Files>
+      <Styles />
+      <Scripts />
+      <Folders />
+      <Images />
+      <Others />
+    </Files>
+    <Generator>
+      <Name>DecSoft App Builder</Name>
+      <Version>2023.33</Version>
+      <Website>https://www.decsoftutils.com/</Website>
+      <Orders>https://www.decsoftutils.com/store/</Orders>
+      <Email>info@decsoftutils.com</Email>
+      <Copyright>©2023 DecSoft App Builder. All rights reserved.</Copyright>
+    </Generator>
+  </App>
+</AppBuilder>

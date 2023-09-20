@@ -1,0 +1,66 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<AppBuilder>
+  <View>
+    <Name>view1</Name>
+    <Width>320</Width>
+    <Height>480</Height>
+    <Controls>
+      <Control Role="3001">
+        <Name>button1</Name>
+        <Top>120</Top>
+        <Left>56</Left>
+        <Width>200</Width>
+        <Height>32</Height>
+        <Languages />
+        <Text>
+          <![CDATA[Get a JSON response]]>
+        </Text>
+        <ClickEvent>
+          <![CDATA[
+// Just execute our HTTP call. (You can take a look at the HTTP control Done and Fail events)
+
+views.view1.http1.execute();
+]]>
+        </ClickEvent>
+      </Control>
+      <Control Role="6001">
+        <Name>http1</Name>
+        <Top>40</Top>
+        <Left>384</Left>
+        <Width>200</Width>
+        <Height>40</Height>
+        <Languages />
+        <Url>http://localhost/www/get_json.php</Url>
+        <ContentType>application/json</ContentType>
+        <DoneEvent>
+          <![CDATA[
+// The server's response, as you can see in the "get_json.php" script
+// included in this script, offer to us a JSON object, which we can
+// directly access using the response property of the HTTP control.
+
+app.showAlert(
+  'O primeiro nome é: ' +
+  views.view1.http1.response.firstName +
+  ' o sobrenome é: ' +
+  views.view1.http1.response.lastName
+);]]>
+        </DoneEvent>
+      </Control>
+      <Control Role="7001">
+        <Name>comment1</Name>
+        <Top>144</Top>
+        <Left>384</Left>
+        <Width>576</Width>
+        <Height>112</Height>
+        <Languages />
+        <Text>
+          <![CDATA[
+This sample app shown how easy is to get a JSON response from a server's script and
+then just access the JSON object properties like any other JavaScript variable, just
+by using the HTTP control's "response" property.
+]]>
+        </Text>
+      </Control>
+    </Controls>
+  </View>
+</AppBuilder>

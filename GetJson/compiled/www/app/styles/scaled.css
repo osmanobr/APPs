@@ -1,0 +1,12 @@
+﻿
+/*!
+This file is part of DecSoft App Builder.
+Visit our website for license information.
+Copyright ©2023 DecSoft. All rights reserved.
+Visit our website at: https://www.decsoftutils.com/
+
+*/
+
+html, body { width: 320px; height: 480px; }
+
+#view1 #button1 { position: absolute; top: 25.00%; left: 17.50%; width: 62.50%; height: 6.67%; }

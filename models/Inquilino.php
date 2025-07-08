@@ -164,5 +164,21 @@ class Inquilino {
             return false;
         }
     }
+
+    /**
+     * Conta o total de inquilinos cadastrados.
+     * @return int
+     */
+    public function countTotalInquilinos() {
+        try {
+            $sql = "SELECT COUNT(id) FROM inquilinos";
+            $stmt = $this->pdo->query($sql);
+            return (int) $stmt->fetchColumn();
+        } catch (PDOException $e) {
+            add_log('erro', 'inquilino_count_total_falha_db', "PDOException ao contar inquilinos: " . $e->getMessage());
+            error_log("Erro ao contar total de inquilinos: " . $e->getMessage());
+            return 0;
+        }
+    }
 }
 ?>

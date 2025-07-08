@@ -14,6 +14,49 @@ protect_page(); // Apenas logado por enquanto, ajustaremos os níveis conforme n
 $user_name = escape_html($_SESSION['user_name'] ?? 'Usuário');
 $user_level = escape_html($_SESSION['user_level'] ?? 'N/A');
 
+// Incluir models para buscar dados para os cards do dashboard
+require_once __DIR__ . '/../models/Reserva.php';
+require_once __DIR__ . '/../models/Estacionamento.php';
+require_once __DIR__ . '/../models/Pedido.php';
+require_once __DIR__ . '/../models/Evento.php';
+require_once __DIR__ . '/../models/Pagamento.php';
+require_once __DIR__ . '/../models/ComissaoVendedor.php';
+require_once __DIR__ . '/../models/Inquilino.php';
+require_once __DIR__ . '/../models/Apartamento.php';
+
+
+$reservaModel = new Reserva();
+$estacionamentoModel = new Estacionamento();
+$pedidoModel = new Pedido();
+$eventoModel = new Evento();
+$pagamentoModel = new Pagamento();
+$comissaoModel = new ComissaoVendedor();
+$inquilinoModel = new Inquilino();
+$apartamentoModel = new Apartamento();
+
+
+// FINANCEIRO
+$data_atual = date('Y-m-d H:i:s');
+$inicio_mes_atual = date('Y-m-01 00:00:00');
+$total_arrecadado_mes = $pagamentoModel->getTotalArrecadadoNoPeriodo($inicio_mes_atual, $data_atual);
+$total_pendente_geral = $pagamentoModel->getTotalPendente();
+$pagamentos_orfaos_count = $pagamentoModel->countPagamentosOrfaos();
+$comissoes_pendentes_total = $comissaoModel->getTotalComissoesPendentes();
+// $comissoes_pagas_mes = $comissaoModel->getTotalComissoesPagasNoPeriodo($inicio_mes_atual, $data_atual); // Implementar se necessário granularidade por data de pagamento da comissão
+
+// OPERACIONAL
+$reservas_ativas_eventos_futuros = $reservaModel->countReservasAtivasEventosFuturos();
+// Taxa de ocupação é mais complexa, pode precisar de um evento específico ou período. Deixar para depois ou simplificar.
+// $checkins_evento_hoje = $participacaoEventoModel->countCheckinsHoje(); // Precisaria de ParticipacaoEventoModel
+$veiculos_estacionados_count = $estacionamentoModel->countVeiculosEstacionadosAtualmente(); // Já tínhamos
+$pedidos_abertos_count = $pedidoModel->countPedidosAbertos(); // Já tínhamos
+
+// GERAL
+$eventos_futuros_count = $eventoModel->countEventosFuturos(); // Já tínhamos
+$total_inquilinos = $inquilinoModel->countTotalInquilinos();
+$total_apartamentos = $apartamentoModel->countTotalApartamentos();
+
+
 ?>
 
 <body class="hold-transition sidebar-mini layout-fixed">
@@ -194,7 +237,10 @@ $user_level = escape_html($_SESSION['user_level'] ?? 'N/A');
                         <li><a href="<?php echo APP_URL; ?>/admin/hotel_criar.php">Criar Novo Hotel</a></li>
                         <li><a href="<?php echo APP_URL; ?>/admin/apartamento_criar.php">Criar Novo Apartamento</a></li>
                     <?php endif; ?>
-                     <li><a href="<?php echo APP_URL; ?>/admin/reserva_criar.php">Criar Nova Reserva</a> (a implementar)</li>
+                    <?php if (in_array($user_level, ['admin', 'vendedor'])): ?>
+                         <li><a href="#">Criar Nova Reserva</a> (a implementar na Fase 2)</li>
+                         <li><a href="<?php echo APP_URL; ?>/admin/inquilino_criar.php">Criar Novo Inquilino</a></li>
+                    <?php endif; ?>
                 </ul>
 
               </div>

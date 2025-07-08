@@ -179,5 +179,21 @@ class Evento {
             return [];
         }
     }
+
+    /**
+     * Conta o número de eventos futuros (data de início maior ou igual a hoje).
+     * @return int
+     */
+    public function countEventosFuturos() {
+        try {
+            $sql = "SELECT COUNT(id) FROM eventos WHERE data_inicio >= CURDATE()";
+            $stmt = $this->pdo->query($sql);
+            return (int) $stmt->fetchColumn();
+        } catch (PDOException $e) {
+            add_log('erro', 'evento_count_futuros_falha_db', "PDOException ao contar eventos futuros: " . $e->getMessage());
+            error_log("Erro ao contar eventos futuros: " . $e->getMessage());
+            return 0;
+        }
+    }
 }
 ?>

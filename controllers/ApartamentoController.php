@@ -80,7 +80,31 @@ try {
                     'responsavel_id' => !empty($_POST['responsavel_id']) ? $_POST['responsavel_id'] : null,
                 ];
 
+                // Buscar dados originais para comparar se o vendedor mudou
+                $apartamento_original = $apartamentoModel->getById($id);
+                if (!$apartamento_original) {
+                    $_SESSION['error_message'] = "Apartamento original não encontrado para verificar alteração de vendedor.";
+                    redirect(APP_URL . '/admin/apartamentos_listar.php');
+                    exit;
+                }
+
                 if ($apartamentoModel->update($id, $dados)) {
+                    // Verificar se o vendedor_id mudou para adicionar ao histórico
+                    // Normalizar NULL e string vazia para comparação
+                    $vendedor_original_id = $apartamento_original['vendedor_id'] ?? null;
+                    $novo_vendedor_id = $dados['vendedor_id'] ?? null;
+
+                    if ($vendedor_original_id !== $novo_vendedor_id) {
+                        require_once __DIR__ . '/../models/HistoricoVendedorApartamento.php';
+                        $histVendModel = new HistoricoVendedorApartamento();
+                        $histVendModel->addEntry([
+                            'apartamento_id' => $id,
+                            'vendedor_id' => $novo_vendedor_id, // Pode ser NULL se o vendedor foi removido
+                            'alterado_por_id' => get_logged_in_user_id(),
+                            'motivo_alteracao' => 'Alteração de vendedor na edição do apartamento.'
+                        ]);
+                    }
+
                     $_SESSION['success_message'] = "Apartamento '" . escape_html($dados['numero_apartamento']) . "' atualizado com sucesso!";
                     redirect(APP_URL . '/admin/apartamentos_listar.php');
                 } else {

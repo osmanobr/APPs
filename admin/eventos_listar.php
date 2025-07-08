@@ -177,9 +177,12 @@ $user_level = escape_html($_SESSION['user_level'] ?? 'N/A');
                         <a href="<?php echo APP_URL; ?>/admin/evento_editar.php?id=<?php echo $evento['id']; ?>" class="btn btn-sm btn-info">
                           <i class="fas fa-edit"></i> Editar
                         </a>
-                        <button class="btn btn-sm btn-danger btn-delete-evento" data-id="<?php echo $evento['id']; ?>" data-nome="<?php echo escape_html($evento['nome']); ?>">
+                        <button class="btn btn-sm btn-danger btn-delete-evento" data-id="<?php echo $evento['id']; ?>" data-nome="<?php echo escape_html($evento['nome']); ?>" title="Excluir Evento">
                             <i class="fas fa-trash"></i> Excluir
                         </button>
+                        <a href="<?php echo APP_URL; ?>/admin/evento_participantes_listar.php?evento_id=<?php echo $evento['id']; ?>" class="btn btn-sm btn-outline-primary" title="Ver Participantes">
+                          <i class="fas fa-users"></i> Participantes
+                        </a>
                       </td>
                     </tr>
                     <?php endforeach; ?>

@@ -202,5 +202,41 @@ class Apartamento {
             return [];
         }
     }
+
+    /**
+     * Conta o total de apartamentos cadastrados.
+     * @return int
+     */
+    public function countTotalApartamentos() {
+        try {
+            $sql = "SELECT COUNT(id) FROM apartamentos";
+            $stmt = $this->pdo->query($sql);
+            return (int) $stmt->fetchColumn();
+        } catch (PDOException $e) {
+            add_log('erro', 'apartamento_count_total_falha_db', "PDOException ao contar apartamentos: " . $e->getMessage());
+            error_log("Erro ao contar total de apartamentos: " . $e->getMessage());
+            return 0;
+        }
+    }
+
+    /**
+     * Retorna a contagem de apartamentos agrupados por hotel.
+     * @return array Ex: [['nome_hotel' => 'Hotel A', 'total_apartamentos' => 10], ...]
+     */
+    public function getApartamentosCountByHotel() {
+        try {
+            $sql = "SELECT h.nome as nome_hotel, COUNT(a.id) as total_apartamentos
+                    FROM apartamentos a
+                    JOIN hoteis h ON a.hotel_id = h.id
+                    GROUP BY h.id, h.nome
+                    ORDER BY h.nome ASC";
+            $stmt = $this->pdo->query($sql);
+            return $stmt->fetchAll(PDO::FETCH_ASSOC);
+        } catch (PDOException $e) {
+            add_log('erro', 'apartamento_count_por_hotel_falha_db', "PDOException: " . $e->getMessage());
+            error_log("Erro ao contar apartamentos por hotel: " . $e->getMessage());
+            return [];
+        }
+    }
 }
 ?>

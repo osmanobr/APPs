@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Theme.ServeFood" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <item name="colorPrimary">#1a1a3e</item>
+        <item name="colorPrimaryDark">#0d0d2b</item>
+        <item name="colorAccent">#00ff88</item>
+        <item name="android:statusBarColor">#0d0d2b</item>
+        <item name="android:navigationBarColor">#0d0d2b</item>
+    </style>
+</resources>

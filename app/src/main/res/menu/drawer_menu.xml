@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:title="Operacional">
+        <menu>
+            <group android:checkableBehavior="single">
+                <item android:id="@+id/nav_caixa"
+                    android:icon="@drawable/ic_gerente"
+                    android:title="Caixa" />
+                <item android:id="@+id/nav_garcom"
+                    android:icon="@drawable/ic_garcon"
+                    android:title="Garçom" />
+                <item android:id="@+id/nav_pdv"
+                    android:icon="@drawable/ic_gerente"
+                    android:title="PDV" />
+                <item android:id="@+id/nav_venda_rapida"
+                    android:title="Venda Rápida" />
+                <item android:id="@+id/nav_comanda_fixa"
+                    android:icon="@drawable/ic_comanda"
+                    android:title="Comanda Fixa" />
+                <item android:id="@+id/nav_balanca"
+                    android:title="Balança" />
+                <item android:id="@+id/nav_balanca_lite"
+                    android:title="Balança Lite" />
+            </group>
+        </menu>
+    </item>
+
+    <item android:title="Produção">
+        <menu>
+            <group android:checkableBehavior="single">
+                <item android:id="@+id/nav_cozinha"
+                    android:icon="@drawable/ic_cozinha"
+                    android:title="Cozinha" />
+                <item android:id="@+id/nav_bar"
+                    android:icon="@drawable/ic_bar"
+                    android:title="Bar" />
+            </group>
+        </menu>
+    </item>
+
+    <item android:title="Cliente &amp; Delivery">
+        <menu>
+            <group android:checkableBehavior="single">
+                <item android:id="@+id/nav_cliente"
+                    android:icon="@drawable/ic_cliente"
+                    android:title="Cliente" />
+                <item android:id="@+id/nav_ecommerce"
+                    android:title="E-commerce" />
+                <item android:id="@+id/nav_entregador"
+                    android:icon="@drawable/ic_entregador"
+                    android:title="Entregador" />
+            </group>
+        </menu>
+    </item>
+
+    <item android:title="Gestão">
+        <menu>
+            <group android:checkableBehavior="single">
+                <item android:id="@+id/nav_gerente"
+                    android:icon="@drawable/ic_gerente"
+                    android:title="Gerente" />
+                <item android:id="@+id/nav_superadmin"
+                    android:title="Super Admin" />
+                <item android:id="@+id/nav_tv"
+                    android:title="TV Cardápio" />
+            </group>
+        </menu>
+    </item>
+</menu>

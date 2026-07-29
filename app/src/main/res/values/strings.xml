@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">ServeFood</string>
+    <string name="nav_subtitle">Sistema de Gestão</string>
+    <string name="nav_open">Abrir menu</string>
+    <string name="nav_close">Fechar menu</string>
+</resources>

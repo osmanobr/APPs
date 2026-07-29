@@ -52,7 +52,6 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         setupWebView()
 
         savedInstanceState ?: run {
-            navigationView.setCheckedItem(R.id.nav_login)
             loadModule("/app/login/")
         }
     }
@@ -71,10 +70,8 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
                 cacheMode = WebSettings.LOAD_DEFAULT
             }
 
-            CookieManager.getInstance().apply {
-                setAcceptCookie(true)
-                setAcceptThirdPartyCookies(this@apply, true)
-            }
+            CookieManager.getInstance().setAcceptCookie(true)
+            CookieManager.getInstance().setAcceptThirdPartyCookies(this@apply, true)
 
             webViewClient = object : WebViewClient() {
                 override fun onPageStarted(view: WebView?, url: String?, favicon: Bitmap?) {
@@ -137,7 +134,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         supportActionBar?.subtitle = item.title
 
         when (item.itemId) {
-            R.id.nav_login -> loadModule("/app/login/")
+            R.id.nav_home -> loadModule("/app/login/")
             R.id.nav_gerente -> loadModule("/app/gerente/")
             R.id.nav_caixa -> loadModule("/app/caixa/")
             R.id.nav_cozinha -> loadModule("/app/cozinha/")
